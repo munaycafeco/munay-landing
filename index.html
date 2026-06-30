@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café Munay — Café especial colombiano con alma</title>
+  <meta name="description" content="Café especial colombiano seleccionado con un solo criterio: que al primer sorbo, algo cambie en ti.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --terra:   #DA4F37;
+      --blush:   #FBDFD9;
+      --oscuro:  #2A1510;
+      --crema:   #FAF6F1;
+      --mid:     #F0E8DF;
+      --texto:   #3D2218;
+      --suave:   #8B6357;
+      --blanco:  #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--crema);
+      color: var(--texto);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ─────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2.5rem;
+      background: rgba(250, 246, 241, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(218, 79, 55, 0.12);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--terra);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo span {
+      font-size: 0.7rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      display: block;
+      color: var(--suave);
+      margin-top: -2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--texto);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--terra); }
+
+    .nav-cta {
+      background: var(--terra);
+      color: var(--blanco) !important;
+      padding: 0.55rem 1.25rem;
+      border-radius: 2rem;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--oscuro) !important; color: var(--blanco) !important; }
+
+    /* ── HERO ────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 5rem;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 4rem 6rem 5rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      line-height: 1.1;
+      color: var(--oscuro);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--terra);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--suave);
+      max-width: 400px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--terra);
+      color: var(--blanco);
+      text-decoration: none;
+      padding: 0.9rem 2rem;
+      border-radius: 3rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--oscuro);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--terra);
+      text-decoration: none;
+      padding: 0.9rem 2rem;
+      border-radius: 3rem;
+      border: 1.5px solid var(--terra);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: var(--blush);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(218, 79, 55, 0.15);
+    }
+
+    .stat-item { text-align: left; }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--terra);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--suave);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      margin-top: 0.2rem;
+    }
+
+    .hero-right {
+      position: relative;
+      background: var(--oscuro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-visual {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Círculos decorativos hero */
+    .hero-circle-1 {
+      position: absolute;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, rgba(218,79,55,0.35), transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .hero-circle-2 {
+      position: absolute;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      border: 1px solid rgba(251, 223, 217, 0.2);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse-ring 4s ease-in-out infinite;
+    }
+
+    .hero-circle-3 {
+      position: absolute;
+      width: 340px; height: 340px;
+      border-radius: 50%;
+      border: 1px solid rgba(218, 79, 55, 0.15);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse-ring 4s ease-in-out infinite 1s;
+    }
+
+    @keyframes pulse-ring {
+      0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+      50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.04); }
+    }
+
+    .hero-logo-mark {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hero-logo-mark svg {
+      width: 120px;
+      height: 120px;
+    }
+
+    .hero-tagline {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: rgba(251, 223, 217, 0.7);
+      white-space: nowrap;
+      letter-spacing: 0.05em;
+    }
+
+    /* Granos decorativos */
+    .grain {
+      position: absolute;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      background: var(--terra);
+      opacity: 0.15;
+    }
+
+    .grain-1 { width: 18px; height: 28px; top: 20%; left: 15%; transform: rotate(25deg); }
+    .grain-2 { width: 14px; height: 22px; top: 35%; right: 18%; transform: rotate(-40deg); opacity: 0.1; }
+    .grain-3 { width: 22px; height: 34px; bottom: 25%; left: 20%; transform: rotate(60deg); }
+    .grain-4 { width: 12px; height: 18px; bottom: 40%; right: 25%; transform: rotate(-20deg); opacity: 0.08; }
+    .grain-5 { width: 16px; height: 26px; top: 15%; right: 30%; transform: rotate(45deg); opacity: 0.12; }
+
+    /* ── SECCIÓN: MANIFIESTO ─────────────── */
+    .manifiesto {
+      background: var(--terra);
+      padding: 6rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .manifiesto::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      top: -200px; right: -200px;
+    }
+
+    .manifiesto-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(251,223,217,0.7);
+      margin-bottom: 1.5rem;
+    }
+
+    .manifiesto-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      line-height: 1.4;
+      color: var(--blanco);
+      max-width: 780px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .manifiesto-quote em {
+      font-style: italic;
+      color: var(--blush);
+    }
+
+    .manifiesto-sub {
+      font-size: 0.95rem;
+      color: rgba(251,223,217,0.75);
+      font-weight: 300;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ── SECCIÓN: HISTORIA ───────────────── */
+    .historia {
+      padding: 7rem 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .section-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1.2;
+      color: var(--oscuro);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title em { font-style: italic; color: var(--terra); }
+
+    .section-body {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--suave);
+      margin-bottom: 1.25rem;
+    }
+
+    .historia-visual {
+      position: relative;
+    }
+
+    .historia-card {
+      background: var(--oscuro);
+      border-radius: 1.5rem;
+      padding: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .historia-card::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(218,79,55,0.3), transparent 70%);
+      top: -80px; right: -80px;
+    }
+
+    .historia-word {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      color: var(--terra);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .historia-def {
+      font-size: 0.8rem;
+      color: rgba(251,223,217,0.6);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .historia-meaning {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--blush);
+      line-height: 1.6;
+    }
+
+    .historia-accent {
+      position: absolute;
+      bottom: -1rem;
+      right: -1rem;
+      width: 80px; height: 80px;
+      background: var(--terra);
+      border-radius: 50%;
+      opacity: 0.15;
+    }
+
+    /* ── SECCIÓN: PRODUCTOS ──────────────── */
+    .productos {
+      background: var(--mid);
+      padding: 7rem 2.5rem;
+    }
+
+    .productos-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background: var(--blanco);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(42,21,16,0.12);
+    }
+
+    .product-visual {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pv-1 { background: linear-gradient(135deg, var(--oscuro) 0%, #4a2018 100%); }
+    .pv-2 { background: linear-gradient(135deg, #5c3020 0%, var(--oscuro) 100%); }
+    .pv-3 { background: linear-gradient(135deg, var(--terra) 0%, #b83e2a 100%); }
+
+    .product-bag {
+      width: 80px;
+      height: 110px;
+      border-radius: 8px 8px 12px 12px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .bag-black { background: #1a0a06; border: 1px solid rgba(218,79,55,0.3); }
+    .bag-white { background: #f5f0eb; border: 1px solid rgba(218,79,55,0.2); }
+    .bag-terra { background: var(--terra); }
+
+    .bag-logo {
+      width: 28px;
+      height: 28px;
+      margin-bottom: 4px;
+    }
+
+    .bag-label {
+      font-size: 0.45rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .bag-black .bag-label, .bag-terra .bag-label { color: rgba(251,223,217,0.8); }
+    .bag-white .bag-label { color: var(--oscuro); }
+
+    .bag-weight {
+      position: absolute;
+      bottom: -10px;
+      background: var(--terra);
+      color: var(--blanco);
+      font-size: 0.55rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .bag-white .bag-weight { background: var(--oscuro); }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-tag {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 0.4rem;
+    }
+
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--oscuro);
+      margin-bottom: 0.5rem;
+    }
+
+    .product-desc {
+      font-size: 0.8rem;
+      color: var(--suave);
+      line-height: 1.6;
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+
+    .product-notas {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .nota-chip {
+      font-size: 0.65rem;
+      background: var(--blush);
+      color: var(--terra);
+      padding: 0.2rem 0.6rem;
+      border-radius: 1rem;
+      font-weight: 500;
+    }
+
+    .product-cta {
+      display: block;
+      text-align: center;
+      background: var(--terra);
+      color: var(--blanco);
+      text-decoration: none;
+      padding: 0.7rem;
+      border-radius: 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      transition: background 0.2s;
+    }
+
+    .product-cta:hover { background: var(--oscuro); }
+
+    /* ── SECCIÓN: MÉTODOS ────────────────── */
+    .metodos {
+      padding: 7rem 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .metodos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .metodo-card {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-radius: 1.25rem;
+      background: var(--blanco);
+      border: 1px solid rgba(218,79,55,0.1);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .metodo-card:hover {
+      border-color: var(--terra);
+      transform: translateY(-3px);
+    }
+
+    .metodo-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .metodo-nombre {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: var(--oscuro);
+      margin-bottom: 0.5rem;
+    }
+
+    .metodo-perfil {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 0.75rem;
+    }
+
+    .metodo-desc {
+      font-size: 0.82rem;
+      color: var(--suave);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ── SECCIÓN: POR QUÉ MUNAY ──────────── */
+    .porque {
+      background: var(--oscuro);
+      padding: 7rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .porque::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(218,79,55,0.2), transparent 70%);
+      bottom: -200px; left: -100px;
+    }
+
+    .porque-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .porque .section-eyebrow { color: var(--blush); opacity: 0.7; }
+    .porque .section-title { color: var(--blanco); }
+
+    .porque-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .porque-item {
+      padding: 2rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(251,223,217,0.1);
+      background: rgba(255,255,255,0.03);
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .porque-item:hover {
+      border-color: rgba(218,79,55,0.4);
+      background: rgba(218,79,55,0.05);
+    }
+
+    .porque-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: var(--terra);
+      opacity: 0.4;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .porque-titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--blush);
+      margin-bottom: 0.5rem;
+    }
+
+    .porque-texto {
+      font-size: 0.85rem;
+      color: rgba(251,223,217,0.55);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    /* ── SECCIÓN: CTA FINAL ──────────────── */
+    .cta-final {
+      background: var(--blush);
+      padding: 7rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-final::before {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: rgba(218,79,55,0.08);
+      top: -150px; right: -100px;
+    }
+
+    .cta-final::after {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(218,79,55,0.06);
+      bottom: -100px; left: -80px;
+    }
+
+    .cta-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 1rem;
+      opacity: 0.8;
+    }
+
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      color: var(--oscuro);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .cta-title em { font-style: italic; color: var(--terra); }
+
+    .cta-sub {
+      font-size: 0.95rem;
+      color: var(--suave);
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #25D366;
+      color: var(--blanco);
+      text-decoration: none;
+      padding: 1rem 2.2rem;
+      border-radius: 3rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1da851;
+      transform: translateY(-2px);
+    }
+
+    .whatsapp-icon {
+      width: 20px; height: 20px;
+      fill: white;
+    }
+
+    .cta-redes {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .cta-redes-label {
+      font-size: 0.75rem;
+      color: var(--suave);
+      font-weight: 400;
+      letter-spacing: 0.08em;
+    }
+
+    .red-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      color: var(--terra);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .red-link:hover { color: var(--oscuro); }
+
+    /* ── FOOTER ──────────────────────────── */
+    footer {
+      background: var(--oscuro);
+      padding: 3rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--terra);
+    }
+
+    .footer-logo span {
+      display: block;
+      font-size: 0.65rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: rgba(251,223,217,0.4);
+      margin-top: 2px;
+    }
+
+    .footer-tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: rgba(251,223,217,0.4);
+    }
+
+    .footer-copy {
+      font-size: 0.7rem;
+      color: rgba(251,223,217,0.25);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── SCROLL REVEAL ───────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ──────────────────────── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 8rem 2rem 3rem; }
+      .hero-right { min-height: 280px; }
+      .historia { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 1.5rem; }
+      .products-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .metodos-grid { grid-template-columns: 1fr; max-width: 400px; margin: 3.5rem auto 0; }
+      .porque-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      footer { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-left { padding: 7rem 1.5rem 3rem; }
+      .manifiesto { padding: 4rem 1.5rem; }
+      .productos, .metodos, .porque, .cta-final { padding: 5rem 1.5rem; }
+      .hero-stats { flex-direction: column; gap: 1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, .reveal { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    café munay
+    <span>en quechua, amor</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#historia">Nuestra historia</a></li>
+    <li><a href="#productos">Cafés</a></li>
+    <li><a href="#metodos">Preparación</a></li>
+    <li><a href="#pedir" class="nav-cta">Pedir mi Munay</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Café especial colombiano · Cali</p>
+    <h1 class="hero-title">
+      Hay un universo<br>
+      dentro de cada<br>
+      <em>taza.</em>
+    </h1>
+    <p class="hero-sub">
+      Seleccionamos cafés colombianos con un solo criterio: que al primer sorbo, algo cambie en ti. No hace falta saber de café. Solo curiosidad.
+    </p>
+    <div class="hero-actions">
+      <a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20conocer%20el%20universo%20Munay%20%E2%98%95" class="btn-primary" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Pedir mi Munay
+      </a>
+      <a href="#productos" class="btn-secondary">Ver catálogo</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Café colombiano especial</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">Munay</div>
+        <div class="stat-label">En quechua, significa amor</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Formas de sentirlo</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="grain grain-1"></div>
+    <div class="grain grain-2"></div>
+    <div class="grain grain-3"></div>
+    <div class="grain grain-4"></div>
+    <div class="grain grain-5"></div>
+    <div class="hero-visual">
+      <div class="hero-circle-1"></div>
+      <div class="hero-circle-2"></div>
+      <div class="hero-circle-3"></div>
+      <div class="hero-logo-mark">
+        <!-- Logo Munay SVG -->
+        <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Corazón con grano de café estilizado -->
+          <path d="M60 95 C60 95 20 68 20 42 C20 28 30 18 42 18 C50 18 57 22 60 28 C63 22 70 18 78 18 C90 18 100 28 100 42 C100 68 60 95 60 95Z" fill="none" stroke="#DA4F37" stroke-width="3" stroke-linejoin="round"/>
+          <!-- Grano interior -->
+          <ellipse cx="60" cy="52" rx="14" ry="20" fill="none" stroke="#DA4F37" stroke-width="2.5"/>
+          <path d="M60 32 C60 32 60 72 60 72" stroke="#DA4F37" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <p style="color: rgba(251,223,217,0.9); font-family: 'Poppins', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; margin-top: 1rem; font-weight: 300;">café munay</p>
+      </div>
+    </div>
+    <p class="hero-tagline">"Sentir el café es diferente a tomarlo."</p>
+  </div>
+</section>
+
+<!-- MANIFIESTO -->
+<section class="manifiesto">
+  <p class="manifiesto-label">Por qué existimos</p>
+  <blockquote class="manifiesto-quote">
+    "Creemos que hay una diferencia enorme entre <em>tomar café</em> y <em>sentir café.</em> Y esa diferencia no requiere ser experto. Solo requiere curiosidad."
+  </blockquote>
+  <p class="manifiesto-sub">
+    Nacimos porque un café nos hizo detenernos. Desde ese día no hemos podido dejar de compartirlo.
+  </p>
+</section>
+
+<!-- HISTORIA -->
+<section class="historia" id="historia">
+  <div class="historia-content reveal">
+    <p class="section-eyebrow">Nuestra historia</p>
+    <h2 class="section-title">No fue un plan.<br>Fue un <em>sorbo.</em></h2>
+    <p class="section-body">
+      Munay no nació de un análisis de mercado. Nació de un momento. El aroma llegó primero, luego el sabor, y con él vino una pregunta que no pudimos ignorar: ¿por qué nunca habíamos sentido esto antes?
+    </p>
+    <p class="section-body">
+      Llevábamos años tomando café sin realmente vivirlo. Era un hábito. Automático. Sin pausa. Ese día todo cambió.
+    </p>
+    <p class="section-body">
+      Somos Juan y Lina. Y desde ese día no hemos podido dejar de compartirlo. Eso es Café Munay.
+    </p>
+  </div>
+  <div class="historia-visual reveal">
+    <div class="historia-card">
+      <div class="historia-word">munay</div>
+      <div class="historia-def">Quechua · sustantivo</div>
+      <div class="historia-meaning">
+        "Amor. No el amor de los discursos.<br>El amor que se expresa en el acto<br>de hacer algo con cuidado."
+      </div>
+      <div class="historia-accent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="productos" id="productos">
+  <div class="productos-inner">
+    <div class="section-header reveal">
+      <p class="section-eyebrow">Nuestro catálogo</p>
+      <h2 class="section-title">Cada bolsa,<br>una <em>experiencia.</em></h2>
+    </div>
+    <div class="products-grid">
+
+      <!-- Producto 1 -->
+      <div class="product-card reveal">
+        <div class="product-visual pv-1">
+          <div class="product-bag bag-black">
+            <svg class="bag-logo" viewBox="0 0 40 40" fill="none">
+              <path d="M20 32 C20 32 6 23 6 14 C6 9 10 6 14 6 C17 6 19 8 20 10 C21 8 23 6 26 6 C30 6 34 9 34 14 C34 23 20 32 20 32Z" fill="none" stroke="#DA4F37" stroke-width="1.5"/>
+              <ellipse cx="20" cy="18" rx="5" ry="7" fill="none" stroke="#DA4F37" stroke-width="1.2"/>
+              <path d="M20 11 L20 25" stroke="#DA4F37" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+            <span class="bag-label">café munay</span>
+            <span class="bag-weight">250g molido</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-tag">Presentación clásica</p>
+          <h3 class="product-name">Molido 250g · Negra</h3>
+          <p class="product-desc">La entrada perfecta al universo Munay. Molido en el punto ideal para colador, moka o prensa francesa.</p>
+          <div class="product-notas">
+            <span class="nota-chip">Panela</span>
+            <span class="nota-chip">Frutos rojos</span>
+            <span class="nota-chip">Caramelo</span>
+          </div>
+          <a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20pedir%20el%20Molido%20250g%20Negra%20%E2%98%95" class="product-cta" target="_blank" rel="noopener">Pedir este café</a>
+        </div>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="product-card reveal">
+        <div class="product-visual pv-2">
+          <div class="product-bag bag-black">
+            <svg class="bag-logo" viewBox="0 0 40 40" fill="none">
+              <path d="M20 32 C20 32 6 23 6 14 C6 9 10 6 14 6 C17 6 19 8 20 10 C21 8 23 6 26 6 C30 6 34 9 34 14 C34 23 20 32 20 32Z" fill="none" stroke="#DA4F37" stroke-width="1.5"/>
+              <ellipse cx="20" cy="18" rx="5" ry="7" fill="none" stroke="#DA4F37" stroke-width="1.2"/>
+              <path d="M20 11 L20 25" stroke="#DA4F37" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+            <span class="bag-label">café munay</span>
+            <span class="bag-weight">500g grano</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-tag">Para el que ya sabe</p>
+          <h3 class="product-name">Grano 500g · Negra</h3>
+          <p class="product-desc">Para quien muele en casa. El grano entero conserva mejor el aroma y permite explorar distintas moliendas.</p>
+          <div class="product-notas">
+            <span class="nota-chip">Chocolate</span>
+            <span class="nota-chip">Cítrico</span>
+            <span class="nota-chip">Floral</span>
+          </div>
+          <a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20pedir%20el%20Grano%20500g%20Negra%20%E2%98%95" class="product-cta" target="_blank" rel="noopener">Pedir este café</a>
+        </div>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="product-card reveal">
+        <div class="product-visual pv-3">
+          <div class="product-bag bag-white">
+            <svg class="bag-logo" viewBox="0 0 40 40" fill="none">
+              <path d="M20 32 C20 32 6 23 6 14 C6 9 10 6 14 6 C17 6 19 8 20 10 C21 8 23 6 26 6 C30 6 34 9 34 14 C34 23 20 32 20 32Z" fill="none" stroke="#2A1510" stroke-width="1.5"/>
+              <ellipse cx="20" cy="18" rx="5" ry="7" fill="none" stroke="#2A1510" stroke-width="1.2"/>
+              <path d="M20 11 L20 25" stroke="#2A1510" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+            <span class="bag-label">café munay</span>
+            <span class="bag-weight">500g molido</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-tag">Edición blanca</p>
+          <h3 class="product-name">Molido 500g · Blanca</h3>
+          <p class="product-desc">La presentación que más llama la atención. Perfecta para regalo o para quien quiere explorar en cantidad.</p>
+          <div class="product-notas">
+            <span class="nota-chip">Panela</span>
+            <span class="nota-chip">Miel</span>
+            <span class="nota-chip">Nuez</span>
+          </div>
+          <a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20pedir%20el%20Molido%20500g%20Blanca%20%E2%98%95" class="product-cta" target="_blank" rel="noopener">Pedir este café</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODOS -->
+<section class="metodos" id="metodos">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">Guía de preparación</p>
+    <h2 class="section-title">El mismo café.<br>Tres formas de <em>sentirlo.</em></h2>
+  </div>
+  <div class="metodos-grid">
+    <div class="metodo-card reveal">
+      <span class="metodo-icon">☕</span>
+      <h3 class="metodo-nombre">Colador tradicional</h3>
+      <p class="metodo-perfil">Suave · Familiar · Para empezar</p>
+      <p class="metodo-desc">El método de siempre. Pero cuando el café es especial, el de siempre sabe diferente. El punto de entrada perfecto.</p>
+    </div>
+    <div class="metodo-card reveal">
+      <span class="metodo-icon">🫙</span>
+      <h3 class="metodo-nombre">Moka</h3>
+      <p class="metodo-perfil">Intenso · Con cuerpo · Directo</p>
+      <p class="metodo-desc">Para quien quiere sentirlo todo de golpe. Concentrado, aromático y con una personalidad que no pasa desapercibida.</p>
+    </div>
+    <div class="metodo-card reveal">
+      <span class="metodo-icon">🫖</span>
+      <h3 class="metodo-nombre">Prensa francesa</h3>
+      <p class="metodo-perfil">Suave · Oleoso · Redondo</p>
+      <p class="metodo-desc">El café que se queda contigo. Más suave, más redondo. Para quien disfruta la pausa tanto como el sabor.</p>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top: 3rem;" class="reveal">
+    <p style="font-size: 0.9rem; color: var(--suave); font-weight: 300; margin-bottom: 1rem;">¿No sabes cuál es el tuyo? Escríbenos y te ayudamos a encontrarlo.</p>
+    <a href="https://wa.me/573001234567?text=Hola%2C%20no%20s%C3%A9%20qu%C3%A9%20m%C3%A9todo%20usar%20con%20mi%20Munay%2C%20%C2%BFme%20ayudan%3F" class="btn-primary" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Preguntarles
+    </a>
+  </div>
+</section>
+
+<!-- POR QUÉ MUNAY -->
+<section class="porque">
+  <div class="porque-inner">
+    <div class="section-header reveal" style="text-align:left;">
+      <p class="section-eyebrow">Por qué Munay</p>
+      <h2 class="section-title">No somos vendedores<br>de café. Somos <em>compañía.</em></h2>
+    </div>
+    <div class="porque-grid">
+      <div class="porque-item reveal">
+        <div class="porque-num">01</div>
+        <h3 class="porque-titulo">Seleccionamos desde la emoción</h3>
+        <p class="porque-texto">Antes de que un café entre a nuestro catálogo, tiene que pasar una sola prueba: generar esa pausa. Ese momento en que alguien da el primer sorbo y levanta la mirada. Si no ocurre eso, no sale.</p>
+      </div>
+      <div class="porque-item reveal">
+        <div class="porque-num">02</div>
+        <h3 class="porque-titulo">Acompañamos más allá de la venta</h3>
+        <p class="porque-texto">Cuando el café llega a tu casa, nuestra relación no termina: comienza la parte más importante. Cómo prepararlo, cómo variarlo, cómo explorarlo de maneras que nunca imaginaste.</p>
+      </div>
+      <div class="porque-item reveal">
+        <div class="porque-num">03</div>
+        <h3 class="porque-titulo">Colombia tiene el café. Nosotros, la historia.</h3>
+        <p class="porque-texto">Cada bolsa llega con el origen de dónde viene, el perfil de lo que vas a sentir y la guía para aprovecharlo al máximo. No es solo un producto: es una puerta de entrada a un universo.</p>
+      </div>
+      <div class="porque-item reveal">
+        <div class="porque-num">04</div>
+        <h3 class="porque-titulo">Honestidad como base</h3>
+        <p class="porque-texto">Munay dice lo que es y es lo que dice. Seleccionamos con criterio, comunicamos con claridad y respaldamos con hechos. No prometemos lo que no podemos cumplir. Nunca.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="pedir">
+  <div style="position:relative; z-index:1;">
+    <p class="cta-eyebrow">Tu primer Munay te espera</p>
+    <h2 class="cta-title">
+      ¿Cuándo fue la última vez<br>que un café te hizo <em>detenerte?</em>
+    </h2>
+    <p class="cta-sub">
+      No hace falta saber de café. No hace falta equipo especial.<br>
+      Solo la disposición de prestarle atención a lo que tienes en la taza.
+    </p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20pedir%20mi%20primer%20Munay%20%E2%98%95" class="whatsapp-btn" target="_blank" rel="noopener">
+        <svg class="whatsapp-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Escribirnos por WhatsApp
+      </a>
+      <a href="#productos" class="btn-secondary">Ver catálogo</a>
+    </div>
+    <div class="cta-redes">
+      <span class="cta-redes-label">Síguenos en</span>
+      <a href="https://instagram.com/munaycafeco" class="red-link" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @munaycafeco
+      </a>
+      <a href="https://tiktok.com/@munaycafeco" class="red-link" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+        @munaycafeco
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    café munay
+    <span>café especial colombiano · cali</span>
+  </div>
+  <p class="footer-tagline">"Cada taza, un mundo por descubrir."</p>
+  <p class="footer-copy">© 2026 Café Munay · Hecho con amor</p>
+</footer>
+
+<!-- SCROLL REVEAL SCRIPT -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
